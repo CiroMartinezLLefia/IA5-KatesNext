@@ -1,7 +1,6 @@
-import { PrismaClient, Role } from "@prisma/client";
+import { Role } from "@prisma/client";
 import bcrypt from "bcryptjs";
-
-const prisma = new PrismaClient();
+import { prisma } from "../src/db/prisma";
 
 async function main() {
   console.log("🌱 Iniciant el seeder de la base de dades...");
