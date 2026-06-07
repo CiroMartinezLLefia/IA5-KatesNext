@@ -28,7 +28,7 @@ export default async function ServeisInformaticsPage() {
             <Link href="/" className="text-zinc-400 hover:text-zinc-200" style={{ color: "#3b82f6" }}>⬅ HUB</Link>
             <Link href="/exercici3/blog" className="text-zinc-400 hover:text-white transition">Blog</Link>
             
-            {session ? (
+            {session?.user ? (
               <>
                 {((session.user as any).role === "ADMIN" || (session.user as any).role === "EDITOR") && (
                   <Link href="/exercici3/backoffice" className="text-teal-400 hover:text-teal-300 transition">
@@ -36,7 +36,7 @@ export default async function ServeisInformaticsPage() {
                   </Link>
                 )}
                 <span className="text-zinc-500 border-l border-zinc-800 pl-4">
-                  {session.user?.name} ({ (session.user as any).role })
+                  {session.user.name} ({ (session.user as any).role })
                 </span>
                 <Link
                   href="/exercici3/auth/logout"

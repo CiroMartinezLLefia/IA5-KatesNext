@@ -30,7 +30,7 @@ export default async function BlogListPage() {
             <Link href="/exercici3" className="text-zinc-400 hover:text-white transition">Inici</Link>
             <Link href="/exercici3/blog" className="text-teal-400 transition">Blog</Link>
             
-            {session ? (
+            {session?.user ? (
               <>
                 {((session.user as any).role === "ADMIN" || (session.user as any).role === "EDITOR") && (
                   <Link href="/exercici3/backoffice" className="text-teal-400 hover:text-teal-300 transition">
@@ -38,7 +38,7 @@ export default async function BlogListPage() {
                   </Link>
                 )}
                 <span className="text-zinc-500 border-l border-zinc-800 pl-4">
-                  {session.user?.name} ({ (session.user as any).role })
+                  {session.user.name} ({ (session.user as any).role })
                 </span>
               </>
             ) : (
